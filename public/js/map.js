@@ -20,4 +20,8 @@ function initializeMap() {
 function placeMarker(location, marker) {
 	marker.setPosition(location);
 	//map.setCenter(location);
+
+	window.setTimeout(function() {
+      map.panTo(location);
+    }, 3000);
 }
