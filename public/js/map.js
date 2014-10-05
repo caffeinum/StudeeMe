@@ -23,5 +23,5 @@ function placeMarker(location, marker) {
 
 	window.setTimeout(function() {
       map.panTo(location);
-    }, 3000);
+    }, 1000);
 }
