@@ -56,6 +56,7 @@ function fetchItems( withEvery ) {
 	$.ajax({
 		method: 'post',
 		url: config.url + config.stud,
+		contentType: 'application/json',
 		headers: config.headers,
 		success: function(data) {
 			data.results.forEach(withEvery);

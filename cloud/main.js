@@ -124,15 +124,27 @@ Parse.Cloud.define("getName", function (req, res){
 });
 
 Parse.Cloud.define("getStudIntent", function (req, res) {
-	var query = new Parse.Query("StudIntent");
- 
+	var StudIntent 	= new Parse.Object.extend("StudIntent");
+	var User 		= new Parse.Object.extend("User");
+	
+	var query = new Parse.Query(StudIntent);
+	
 	query.descending("createdAt"); // replace with start_time
     query.limit(10);
 	
-	query.include("User");
-    query.find({
+	query.find({
         success: function (results) {
-			res.success( results );
+			var user = new User();
+			var relation = user.relation('EventSubscription');
+			relation.add(results);
+			relation.query().find({
+        		success: function (results) {
+					res.success( results );
+				},
+				error: function (error) {
+					res.error(error);
+				}
+			);
         },
         error: function (error) {
             res.error(error);
