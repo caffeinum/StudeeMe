@@ -20,5 +20,5 @@ function initializeMap() {
 function placeMarker(location, marker) {
 	marker.setPosition(location);
 
-	map.setCenter(location);
+	//map.setCenter(location);
 }
