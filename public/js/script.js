@@ -69,8 +69,23 @@ $(function () {
 });
 function sendSubscribe(){
 	var $p = $(this).parent();
-	$p.find('.info-name')	.attr('data-key');
-	$p.find('.info-subject').attr('data-key');
+	var user_id = $p.find('.info-name')		.attr('data-key');
+	var subj_id = $p.find('.info-subject')	.attr('data-key');
+	
+	
+	$.ajax({
+		method: 'post',
+		url: config.url + 'functions/subscribeToAStud',
+		data: JSON.stringify({
+			user_id: user_id,
+			subj_id: subj_id
+		}),
+		contentType: 'application/json',
+		headers: config.headers,
+		success: function(data) {
+			console.log( data );
+		}
+	});
 	
 }
 
