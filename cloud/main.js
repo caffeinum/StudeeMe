@@ -124,27 +124,38 @@ Parse.Cloud.define("getName", function (req, res){
 });
 
 Parse.Cloud.define("getStudIntent", function (req, res) {
-	var StudIntent 	= new Parse.Object.extend("StudIntent");
-	var User 		= new Parse.Object.extend("User");
+	var query 	= new Parse.Query("StudIntent");
+	/*var User 		= new Parse.Object.extend("User");
+	var Subject 	= new Parse.Object.extend("Subject");
+	*/
+	var userQuery 		= new Parse.Query("User");
+	var subjectQuery 	= new Parse.Query("Subject");
 	
-	var query = new Parse.Query(StudIntent);
-	
-	query.descending("createdAt"); // replace with start_time
+	query.descending("createdAt" || req.params.sort); // replace with start_time
     query.limit(10);
+	
+	query.include("User");
+	query.include("Subject");
 	
 	query.find({
         success: function (results) {
-			var user = new User();
+			results.forEach(function (elem) {
+				elem.User = elem.get("User");
+				elem.Subject = elem.get("Subject");
+			});
+			
+			res.success(results);
+	/*		var user = new User();
 			var relation = user.relation('EventSubscription');
 			relation.add(results);
 			relation.query().find({
         		success: function (results) {
-					res.success( results );
-				},
+*/					
+	/*			},
 				error: function (error) {
 					res.error(error);
 				}
-			);
+			}); */
         },
         error: function (error) {
             res.error(error);
@@ -170,8 +181,8 @@ Parse.Cloud.define("getSubjectName", function (req, res){
 });
  
 Parse.Cloud.define("subscribeToAStud", function(request, response){
-    var User = Parse.Object.extend("User");
-    var StudIntent = Parse.Object.extend("StudIntent");
+    var User 		= Parse.Object.extend("User");
+    var StudIntent 	= Parse.Object.extend("StudIntent");
      
     var user = new User();
     var stud = new StudIntent();
@@ -193,6 +204,33 @@ Parse.Cloud.define("subscribeToAStud", function(request, response){
     subscription.save(null, {
         success: function(subscription){
             response.success(subscription);
+        },
+        error: function(){
+            response.error();
+        }
+    });
+});
+
+
+Parse.Cloud.define("createStud", function(request, response){
+    var User 		= Parse.Object.extend("User");
+    var Subject 	= Parse.Object.extend("Subject");
+    
+    var user = new User();
+    var subj = new Subject();
+ 
+    user.id = request.params.user_id;
+    subj.id = request.params.subj_id;
+ 
+    var StudIntent = Parse.Object.extend("StudIntent");
+    var stud = new StudIntent();
+     
+    stud.set("User", user);
+	stud.set("Subject", subj);
+         
+    stud.save(null, {
+        success: function(data){
+            response.success(data);
         },
         error: function(){
             response.error();
@@ -221,3 +259,5 @@ Parse.Cloud.define("queryStudIntentId", function(request, response){
         }
     });
 });
+
+//require('cloud/app.js');

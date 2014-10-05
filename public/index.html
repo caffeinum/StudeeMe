@@ -15,10 +15,10 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyANS6RTpi6lkVuCRtofRFQNCVasdrvuTU8"></script>
 	<script src="lib/jquery-2.1.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script src="script.js"></script>
+	<script src="js/map.js"></script>
+	<script src="js/script.js"></script>
 </head>
 <body>
-	<div class=""></div>
 	<div class="container">
 		<div class="map">
 			<div class="col-md-6" id="map-canvas"></div>
@@ -31,13 +31,15 @@
 							<li class="list-group-item stud row">
 								<h1>
 									<span class="label label-primary">
-									Stud<i>ee</i>Me
+									Stud<u>ee</u>Me!
 									</span>
 								</h1>
 								<input class="col-sm-8 stud-input" type="text"
 									   value="What's you studying?" />
+								<a href="#" class="btn" id="auth">Authorize VK</a>
 							<!--	<input class="btn btn-primary" type="button" value="Send" />
 							--></li>
+<!--
 							<li class="list-group-item no-show">
 								<input class="place-input" type="text" value="Where?" />
 							</li>
@@ -45,7 +47,6 @@
 							<li class="list-group-item no-show">
 								<input class="subject-input" type="text" value="What?" />
 							</li>
-<!--
 							<li class="list-group-item no-show">
 								<input class="time-input" type="time" value="now" />
 							</li>-->

@@ -8,6 +8,9 @@
   width: 50%;
   height: 100%;
 }
+.top .stud-col {
+  height: 200px;
+}
 .top .stud-col h1 {
   float: right;
   background: white;

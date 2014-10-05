@@ -13,9 +13,10 @@ app.use(express.bodyParser());    // Middleware for reading request body
 
 
 // Example reading from the request query string of an HTTP get request.
-app.get('/test', function(req, res) {
-   // GET http://example.parseapp.com/test?message=hello
-   res.send(req.query.message);
+app.get('/auth', function(req, res) {
+	// GET http://example.parseapp.com/test?message=hello
+	
+	res.send(req.query);
 });
 
 // // Example reading from the request body of an HTTP post request.
