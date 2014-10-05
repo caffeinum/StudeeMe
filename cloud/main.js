@@ -129,7 +129,7 @@ Parse.Cloud.define("getStudIntent", function (req, res) {
 	query.descending("createdAt"); // replace with start_time
     query.limit(10);
 	
-	query.include("parent");
+	query.include("User");
     query.find({
         success: function (results) {
 			res.success( results );

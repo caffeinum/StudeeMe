@@ -62,7 +62,7 @@ function initializeMap() {
 function fetchItems( withEvery ) {
 	
 	$.ajax({
-		method: 'get',
+		method: 'post',
 		url: config.url + config.stud,
 		headers: config.headers,
 		success: function(data) {
@@ -106,11 +106,11 @@ function setSender( button, collectData ) {
 }
 
 var config = {
-	url: 'https://api.parse.com/1/functions',
+	url: 'https://api.parse.com/1/functions/get',
 	headers: {
 		'X-Parse-Application-Id': 'kJlYHrSf2nlFqetT4E01iZJAs8PfGT9N4VEaO3Zt',
 		'X-Parse-REST-API-Key': 'w4wKC9OjZT2YQfO8jUAhC35CNYJqPjRewT943rW9'
 	},
-	stud: 'getStudIntent',
+	stud: 'StudIntent',
 	gapi_key: 'AIzaSyANS6RTpi6lkVuCRtofRFQNCVasdrvuTU8'
 };
