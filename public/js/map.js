@@ -14,7 +14,7 @@ function initializeMap() {
 	google.maps.event.addListener(map, 'click', function(event) {
     	var geoPoint = event.latLng;
     	placeMarker(event.latLng, mark);
-    }
+    })
 };
 
 function placeMarker(location, marker) {
