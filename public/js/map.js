@@ -1,4 +1,4 @@
-var map;
+var map, geoPoint;
 function initializeMap() {
 	var mapOptions = {
 		zoom: 12,
@@ -12,13 +12,12 @@ function initializeMap() {
 	});
 	mark.getVisible(0);
 	google.maps.event.addListener(map, 'click', function(event) {
-    	var geoPoint = event.latLng;
+    	geoPoint = event.latLng;
     	placeMarker(event.latLng, mark);
     })
 };
 
 function placeMarker(location, marker) {
 	marker.setPosition(location);
-
 	//map.setCenter(location);
 }
