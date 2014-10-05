@@ -1,0 +1,66 @@
+* {
+	font-family: Verdana;
+}
+.map {
+	height: 200px;
+	#map-canvas {
+		width: 50%; height: 100%;
+	}
+}
+.top {
+	.stud-col {
+		h1 {
+			float: right;
+			background: white;
+			padding: 10px 0 20px 20px;
+			margin-top: 5px;
+			cursor: pointer;
+			box-shadow: 0 1px 2px rgba(0,0,0,.45);
+		}
+		.list-group {
+			margin: 0 10px;
+			list-style: none;
+		}
+		.no-show {
+			display: none;
+		}
+		input[type=button] {
+			margin: 20px;
+		}
+		input[type=text] {
+			padding: 5px;
+		}
+	}
+}
+
+.list {
+	.proto {
+		display: none;
+	}
+	.studIntent {
+		padding: 10px;
+		.inner {
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			box-shadow: 0 1px 2px rgba(0,0,0,.05);
+			.profile-photo {
+				width: 100px; height: 100px;
+				margin: 0px 15px;
+			}
+			.panel-bottom {
+				padding: 10px;
+				width: 100%;
+				.info-time {
+					float: right;
+				}
+			}
+		}
+	}
+
+	.studIntent:hover {
+		outline: 3px solid #428bca;
+		border-radius: 5px;
+
+
+	}
+}

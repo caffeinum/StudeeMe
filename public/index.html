@@ -1,21 +1,95 @@
+<!DOCTYPE html>
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>StudeeMe</title>
+	<meta charset="utf8">
 
-<html>
-  <head>
-    <title>My ParseApp site</title>
-    <style>
-    body { font-family: Helvetica, Arial, sans-serif; }
-    div { width: 800px; height: 400px; margin: 40px auto; padding: 20px; border: 2px solid #5298fc; }
-    h1 { font-size: 30px; margin: 0; }
-    p { margin: 40px 0; }
-    em { font-family: monospace; }
-    a { color: #5298fc; text-decoration: none; }
-    </style>
-  </head>
-  <body>
-    <div>
-      <h1>Congratulations! You're already hosting with Parse.</h1>
-      <p>To get started, edit this file at <em>public/index.html</em> and start adding static content.</p>
-      <p>If you want something a bit more dynamic, delete this file and check out <a href="https://parse.com/docs/hosting_guide#webapp">our hosting docs</a>.</p>
-    </div>
-  </body>
-</html>
+	<link rel="stylesheet"
+		  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet"
+		  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	
+	<link rel="stylesheet" href="style.css" />
+	
+	
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyANS6RTpi6lkVuCRtofRFQNCVasdrvuTU8"></script>
+	<script src="lib/jquery-2.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+	<div class=""></div>
+	<div class="container">
+		<div class="map">
+			<div class="col-md-6" id="map-canvas"></div>
+
+			<div class="col-md-6 top">
+
+				<div class="stud-col">
+					<form class="addStud">
+						<ul class="list-group">
+							<li class="list-group-item stud row">
+								<h1>
+									<span class="label label-primary">
+									Stud<i>ee</i>Me
+									</span>
+								</h1>
+								<input class="col-sm-8 stud-input" type="text"
+									   value="What's you studying?" />
+							<!--	<input class="btn btn-primary" type="button" value="Send" />
+							--></li>
+							<li class="list-group-item no-show">
+								<input class="place-input" type="text" value="Where?" />
+							</li>
+
+							<li class="list-group-item no-show">
+								<input class="subject-input" type="text" value="What?" />
+							</li>
+
+							<li class="list-group-item no-show">
+								<input class="time-input" type="time" value="now" />
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="list">
+			<div class="col-md-4 studIntent proto">
+				<div class="inner">
+					<div class="navbar navbar-inverse profile">
+						<div class="navbar-header">
+								<a class="navbar-brand info-name" data-key="userId">
+								   Person
+								</a>
+							</div>
+							<div class="navbar-collapse">
+								<ul class="nav navbar-nav">
+									<li>
+										<a href="#" class="sub">
+											Subscribe
+										</a>
+									</li>
+								</ul>
+							</div>
+						
+					</div>
+					<div>
+						<img class="profile-photo img-thumbnail" />
+						<span class="info-subject" data-subject-id="" data-key="subject">
+							Maths
+						</span>
+					</div>
+					<div class="panel-bottom">
+						<span class="info-place" data-key="place">
+							6th dorm
+						</span>
+						<span class="info-time" data-key="time">
+							Today, 18:00 - 20:00
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body></html>

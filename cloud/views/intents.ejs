@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>StudeeMe</title>
+	<meta charset="utf8">
+	<script src="lib/jquery-2.1.1.min.js"></script>
+	<script src="script.js"></script>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<input class="stud" type="text" value="What's you studying?" />
+	<div class="map"></div>
+	<div class="list">
+		<div class="studIntent">
+			<div class="profile">
+				<%= name %>
+				<img />
+			</div>
+			<span class="location">
+				<%= location %>
+			</span>
+			<span class="time">
+				<%= time %>
+			</span>
+		
+			<span class="subject" data-subject-id="">
+				<%= subject %>
+			</span>
+			<input class="btn sub" type="button" value="Subscribe" />
+		</div>
+	</div>
+</body></html>

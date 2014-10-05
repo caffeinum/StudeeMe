@@ -1,0 +1,58 @@
+* {
+  font-family: Verdana;
+}
+.map {
+  height: 200px;
+}
+.map #map-canvas {
+  width: 50%;
+  height: 100%;
+}
+.top .stud-col h1 {
+  float: right;
+  background: white;
+  padding: 10px 0 20px 20px;
+  margin-top: 5px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+.top .stud-col .list-group {
+  margin: 0 10px;
+  list-style: none;
+}
+.top .stud-col .no-show {
+  display: none;
+}
+.top .stud-col input[type=button] {
+  margin: 20px;
+}
+.top .stud-col input[type=text] {
+  padding: 5px;
+}
+.list .proto {
+  display: none;
+}
+.list .studIntent {
+  padding: 10px;
+}
+.list .studIntent .inner {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.list .studIntent .inner .profile-photo {
+  width: 100px;
+  height: 100px;
+  margin: 0px 15px;
+}
+.list .studIntent .inner .panel-bottom {
+  padding: 10px;
+  width: 100%;
+}
+.list .studIntent .inner .panel-bottom .info-time {
+  float: right;
+}
+.list .studIntent:hover {
+  outline: 3px solid #428bca;
+  border-radius: 5px;
+}
