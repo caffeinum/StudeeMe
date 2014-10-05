@@ -40,7 +40,7 @@ function initializeMap() {
 	fetchItems(function (elem) {
 		var $new = $listItem.clone().removeClass('proto');
 
-		$new.find('.info-name')		.text(elem.userId);
+		$new.find('.info-name')		.text(elem.userName);
 		$new.find('.info-place')	.text(elem.place);
 		$new.find('.info-time')		.text(elem.time);
 		$new.find('.info-subject')	.text(elem.subject);
@@ -106,11 +106,11 @@ function setSender( button, collectData ) {
 }
 
 var config = {
-	url: 'https://api.parse.com/1/classes/',
+	url: 'https://api.parse.com/1/functions',
 	headers: {
 		'X-Parse-Application-Id': 'kJlYHrSf2nlFqetT4E01iZJAs8PfGT9N4VEaO3Zt',
 		'X-Parse-REST-API-Key': 'w4wKC9OjZT2YQfO8jUAhC35CNYJqPjRewT943rW9'
 	},
-	stud: 'StudIntent',
+	stud: 'getStudIntent',
 	gapi_key: 'AIzaSyANS6RTpi6lkVuCRtofRFQNCVasdrvuTU8'
 };

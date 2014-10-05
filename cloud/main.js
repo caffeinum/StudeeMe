@@ -104,7 +104,7 @@ Parse.Cloud.define("getName", function (req, res){
                     Parse.Cloud.httpRequest({
                         url: 'http://api.vk.com/method/users.get?user_ids='+vk_id,
                         success: function(httpResponse) {
-                            res.success( JSON.parse(httpResponse.text).response );
+                            res.success( JSON.parse(httpResponse.text).response[0] );
                         },
                         error: function(httpResponse) {
                             res.error('Request failed with response code ' + httpResponse.status);
@@ -122,9 +122,26 @@ Parse.Cloud.define("getName", function (req, res){
         }
     });
 });
+
+Parse.Cloud.define("getStudIntent", function (req, res) {
+	var query = new Parse.Query("StudIntent");
  
+	query.descending("createdAt"); // replace with start_time
+    query.limit(10);
+	
+	query.include("parent");
+    query.find({
+        success: function (results) {
+			res.success( results );
+        },
+        error: function (error) {
+            res.error(error);
+        }
+    });
+});
+
 Parse.Cloud.define("getSubjectName", function (req, res){
-    var query = new Parse.Query("Subject");
+	var query = new Parse.Query("Subject");
  
     query.equalTo("objectId", req.params.subj_id);
     query.find({
@@ -171,10 +188,10 @@ Parse.Cloud.define("subscribeToAStud", function(request, response){
     });
 });
  
-Parse.Cloud.define("queryUserId", function(request, response){
-    var User = Parse.Object.extend("User");
-    var uquery = new Parse.Query(User);
-    uquery.equalTo("objectId", request.params.user_id);
+Parse.Cloud.define("getUser", function(request, response){
+    var uquery = new Parse.Query("User");
+
+	uquery.equalTo("objectId", request.params.user_id);
     uquery.first({
         success: function(object){
             response.success(object);
